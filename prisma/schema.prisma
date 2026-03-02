@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model PortfolioItem {
+  id          String   @id @default(cuid())
+  title       String?
+  imageUrl    String
+  category    String   // "fineline" | "realistic" | "blackandwhite"
+  description String?
+  sortOrder   Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([category])
+  @@index([isVisible])
+}
+
+model Certificate {
+  id          String   @id @default(cuid())
+  title       String
+  imageUrl    String
+  issuer      String?
+  issuedAt    DateTime?
+  description String?
+  sortOrder   Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ContactInfo {
+  id          String   @id @default(cuid())
+  key         String   @unique  // "phone" | "email" | "address" | "city" | "zip"
+  value       String
+  label       String?
+  updatedAt   DateTime @updatedAt
+}
+
+model SocialLink {
+  id        String   @id @default(cuid())
+  platform  String   @unique  // "instagram" | "facebook" | "tiktok" | "youtube"
+  url       String
+  isActive  Boolean  @default(false)
+  sortOrder Int      @default(0)
+  updatedAt DateTime @updatedAt
+}
+
+model OpeningHours {
+  id        String   @id @default(cuid())
+  dayOfWeek Int      // 0=Sonntag, 1=Montag, ..., 6=Samstag
+  dayLabel  String   // "Montag", "Dienstag", etc.
+  slots     Json     // [{ from: "09:00", to: "18:00" }]
+  isClosed  Boolean  @default(false)
+  sortOrder Int      @default(0)
+  updatedAt DateTime @updatedAt
+
+  @@unique([dayOfWeek])
+}
+
+model ContactRequest {
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  phone      String?
+  tattooStyle String?
+  message    String
+  isRead     Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  @@index([isRead])
+  @@index([createdAt])
+}
