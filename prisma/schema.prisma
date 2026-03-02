@@ -42,9 +42,20 @@ model Certificate {
   updatedAt   DateTime @updatedAt
 }
 
+model HeroSlide {
+  id        String   @id @default(cuid())
+  imageUrl  String
+  title     String
+  subtitle  String?
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model ContactInfo {
   id          String   @id @default(cuid())
-  key         String   @unique  // "phone" | "email" | "address" | "city" | "zip"
+  key         String   @unique  // "phone" | "email" | "city" | "about"
   value       String
   label       String?
   updatedAt   DateTime @updatedAt
