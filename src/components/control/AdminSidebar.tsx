@@ -8,17 +8,19 @@ import {
   Phone,
   Share2,
   Clock,
+  KeyRound,
   LogOut,
 } from "lucide-react";
 
 const NAV_ITEMS = [
-  { href: "/control",                 label: "Dashboard",     icon: LayoutDashboard },
-  { href: "/control/hero",            label: "Hero Slider",   icon: Presentation },
-  { href: "/control/portfolio",       label: "Portfolio",     icon: Images },
-  { href: "/control/zertifikate",     label: "Zertifikate",   icon: Award },
-  { href: "/control/kontaktdaten",    label: "Kontaktdaten",  icon: Phone },
-  { href: "/control/social-media",    label: "Social Media",  icon: Share2 },
-  { href: "/control/oeffnungszeiten", label: "Öffnungszeiten",icon: Clock },
+  { href: "/control",                 label: "Dashboard",      icon: LayoutDashboard },
+  { href: "/control/hero",            label: "Hero Slider",    icon: Presentation },
+  { href: "/control/portfolio",       label: "Portfolio",      icon: Images },
+  { href: "/control/zertifikate",     label: "Zertifikate",    icon: Award },
+  { href: "/control/kontaktdaten",    label: "Kontaktdaten",   icon: Phone },
+  { href: "/control/social-media",    label: "Social Media",   icon: Share2 },
+  { href: "/control/oeffnungszeiten", label: "Öffnungszeiten", icon: Clock },
+  { href: "/control/passwort",        label: "Passwort",       icon: KeyRound },
 ];
 
 export function AdminSidebar(): React.JSX.Element {
