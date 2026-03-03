@@ -5,6 +5,10 @@ Moderne, vollständig responsive Website für einen Tattoo-Artist
 
 ---
 
+Dies ist eine vereinfachte Version zur ursprünglichen (welche nach wie vor private ist)
+
+---
+
 ## 🚀 Tech Stack
 
 - Next.js (App Router)
